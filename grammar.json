@@ -1,0 +1,123 @@
+{
+"origin": [
+	"#track#, but #sound_phrase# you're in another room.",
+	"#track#, #played_by# your #relationship# while you're #action# in another room.",
+	"#track#, playing #source# while you're #action# in another room.",
+	"#track#, but #sound_phrase# it's playing #location# and you're #action# in another room.",
+	"#track#, but #sound_phrase# it's playing in another room while you're #action# #location#.",
+	"Your #relationship# is #listening to# #track#, but #sound_phrase# you're #action# in another room.",
+	"{artist} is playing {song}, but #sound_phrase# you're #action# in another room."
+],
+
+"origin_maybe": [
+	"You're #location# and #track# is playing in another room.",
+	"You're #action# while #track# plays #source# in another room.",
+	"You're #action# in another room while |artist| plays |song|."
+],
+
+"track": [
+	"{song} by {artist}",
+	"{artist}'s {song}"
+],
+
+"relationship": [
+	"mom",
+	"dad",
+	"#age# brother",
+	"#age# sister",
+	"boyfriend",
+	"girlfriend",
+	"crush",
+	"best friend",
+	"roommate"
+],
+
+"age": [
+	"",
+	"little",
+	"older"
+],
+
+"action_phrase": [
+	"",
+	"while you're #action#"
+],
+
+"action": [
+	"",
+	"",
+	"hiding",
+	"making out with someone",
+	"losing your virginity",
+	"having sex",
+	"smoking",
+	"sleeping",
+	"reading",
+	"petting a cat",
+	"looking at your phone",
+	"crying",
+	"drinking",
+	"waiting",
+	"listening",
+	"recovering from a headache",
+	"feeling sick",
+	"avoiding your #relationship#",
+	"waiting for your #relationship#",
+	"getting ready to leave",
+	"daydreaming"
+],
+
+"location_prep": [
+	"at a",
+	"at the"
+],
+
+"location": [
+	"#location_prep# party",
+	"#location_prep# house show",
+	"#location_prep# house party",
+	"#location_prep# karaoke bar",
+	"#location_prep# club",
+	"on the fire escape",
+	"in an alley",
+	"on the roof",
+	"in a hotel hallway",
+	"in your apartment stairwell",
+	"in your kitchen"
+],
+
+"platform": [
+	"from a movie",
+	"on tv",
+	"from your #relationship#'s phone",
+	"on the radio"
+],
+
+"source": [
+	"#location#",
+	"#platform#"
+],
+
+"sound_phrase": [
+	"",
+	"it's #sound# because",
+	"it's #sound# because"
+],
+
+"sound": [
+	"muffled",
+	"quieter",
+	"distorted",
+	"faint"
+],
+
+"listening to": [
+	"listening to",
+	"blasting",
+	"loudly playing"
+],
+
+"played_by": [
+	"played by",
+	"blasted by"
+]}

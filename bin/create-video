@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Create 140 second video for twitter from specified image and audio file
+# Requires ffmpeg and lame for reading mp3
+# Usage: bin/create-video <thumbnail> <audio>
+video_file="${1%.*}".mp4
+ffmpeg -r 1 -loop 1 -i "$1" -i "$2" -acodec copy -r 1 -shortest -vf scale=1280:720 -t 140 "$video_file"
+echo $video_file

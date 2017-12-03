@@ -1,21 +1,23 @@
 {
 "origin": [
+	"#track# from another room.",
+	"#track#, but #sound_phrase# it's #playing# from another room.",	
+	"#track#, but #sound_phrase# your #relationship# is listening to it in another room.",	
 	"#track#, but #sound_phrase# you're in another room.",
-	"#track#, #played_by# your #relationship# while you're #action# in another room.",
-	"#track#, playing #source# while you're #action# in another room.",
-	"#track#, but #sound_phrase# it's playing #location# and you're #action# in another room.",
-	"#track#, but #sound_phrase# it's playing in another room while you're #action# #location#.",
-	"Your #relationship# is #listening to# #track#, but #sound_phrase# you're #action# in another room.",
-	"{artist} is playing {song}, but #sound_phrase# you're #action# in another room."
-],
-
-"origin_maybe": [
-	"You're #location# and #track# is playing in another room.",
-	"You're #action# while #track# plays #source# in another room.",
-	"You're #action# in another room while |artist| plays |song|."
+	"#track#, but #sound_phrase# #source_skip# you're #action_skip# in another room.",
+	"#track#, #played_by# your #relationship# while you're #action_skip# in another room.",
+	"#track#, #playing# #source# while you're #action# in another room.",
+	"Your #relationship# #is listening to# #track#, but #sound_phrase# you're #action_skip# in another room.",
+	"{artist} is playing {song}, but #sound_phrase# you're #action_skip# in another room.",
+	"{artist} is playing {song}, but #sound_phrase# you're #action_skip# in another room."
+	"It's {year}. Your #relationship# #is listening to# #track#, but #sound_phrase# you're #action_skip# in another room.",
+	"It's {year}. {artist} is playing {song}, but #sound_phrase# you're #action_skip# in another room.",
 ],
 
 "track": [
+	"{song}",
+	"{song}",
+	"{song} by {artist}",
 	"{song} by {artist}",
 	"{artist}'s {song}"
 ],
@@ -25,27 +27,33 @@
 	"dad",
 	"#age# brother",
 	"#age# sister",
+	"#age# brother",
+	"#age# sister",
 	"boyfriend",
 	"girlfriend",
 	"crush",
+	"crush",
+	"ex",
 	"best friend",
-	"roommate"
+	"childhood friend",
+	"college roommate",
+	"husband",
+	"wife",
+	"neighbor"
 ],
 
 "age": [
-	"",
+	"", 
 	"little",
 	"older"
 ],
 
-"action_phrase": [
+"action_skip": [
 	"",
-	"while you're #action#"
+	"#action#"
 ],
 
 "action": [
-	"",
-	"",
 	"hiding",
 	"making out with someone",
 	"losing your virginity",
@@ -53,18 +61,35 @@
 	"smoking",
 	"sleeping",
 	"reading",
-	"petting a cat",
+	"petting a dog",
+	"petting your cat",
 	"looking at your phone",
 	"crying",
 	"drinking",
 	"waiting",
-	"listening",
 	"recovering from a headache",
 	"feeling sick",
 	"avoiding your #relationship#",
 	"waiting for your #relationship#",
 	"getting ready to leave",
-	"daydreaming"
+	"daydreaming",
+	"getting dressed",
+	"waking up",
+	"making breakfast",
+	"doing your makeup",
+	"with your #relationship#",
+	"falling asleep",
+	"fighting with #relationship#",
+	"dancing",
+	"dancing with your #relationship#",
+	"having a drink",
+	"playing cards",
+	"alone",
+	"half asleep",
+	"dreaming",
+	"watching Netflix",
+	"brushing your teeth",
+	"taking a shower"
 ],
 
 "location_prep": [
@@ -72,31 +97,44 @@
 	"at the"
 ],
 
-"location": [
+"source": [
 	"#location_prep# party",
+	"#location_prep# college party",
 	"#location_prep# house show",
 	"#location_prep# house party",
+	"#location_prep# bar",
 	"#location_prep# karaoke bar",
 	"#location_prep# club",
-	"on the fire escape",
-	"in an alley",
-	"on the roof",
-	"in a hotel hallway",
-	"in your apartment stairwell",
-	"in your kitchen"
-],
-
-"platform": [
+	"#location_prep# party",
+	"#location_prep# college party",
+	"#location_prep# house show",
+	"#location_prep# house party",
+	"#location_prep# bar",
+	"#location_prep# karaoke bar",
+	"#location_prep# club",
+	"from the fire escape",
+	"from the alley",
+	"from the roof",
+	"from the basement",
+	"from a hotel hallway",
+	"from your apartment stairwell",
+	"from your kitchen",
+	"from next door",
+	"through a wall",
+	"from upstairs",
+	"from downstairs",
+	"from the street",
 	"from a movie",
-	"on tv",
+	"on TV",
 	"from your #relationship#'s phone",
 	"on the radio"
 ],
 
-"source": [
-	"#location#",
-	"#platform#"
-],
+"source_skip": [
+	"",
+	"it's #playing# #source# while",
+	"it's #playing# #source# and"
+], 
 
 "sound_phrase": [
 	"",
@@ -108,16 +146,37 @@
 	"muffled",
 	"quieter",
 	"distorted",
-	"faint"
+	"faint",
+	"hard to hear",
+	"hard to hear the words",
+	"difficult to understand",
+	"softer",
+	"unintelligible"
 ],
 
-"listening to": [
-	"listening to",
-	"blasting",
-	"loudly playing"
-],
+"is listening to": [
+	"is listening to",
+	"is blasting",
+	"is loudly playing",
+	"is softly playing",
+	"just put on",
+	"just put on",
+	"won't turn off"
+], 
 
 "played_by": [
 	"played by",
-	"blasted by"
+	"blasted by",
+	"played quietly by",
+	"played loudly by",
+	"put on by"
+],
+
+"playing": [
+	"playing",
+	"playing",
+	"playing loudly",
+	"playing softly",
+	"being played",
+	"drifting in"
 ]}

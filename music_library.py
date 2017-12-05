@@ -28,26 +28,12 @@ class YoutubeLibrary():
                 'info': song information as returned by get_random_song_info
             }
         """
-        video_id = None
-        while not video_id:
+        while True:
+            info = self.get_random_song_info()
             try:
-                info = self.get_random_song_info()
-                print(info)
-                query = '{artist} {title}'.format(**info)
-                print('query: ' + query)
-                video_id = self.get_video_id(query)
-                print(video_id)
+                return self.get_song(info)
             except KeyError:
                 print('no results, trying again')
-                pass
-
-        basename = self.download_song(video_id)
-        return {
-            'basename': basename,
-            'audio_file': os.path.join(self.directory, basename + '.mp3'),
-            'thumbnail': os.path.join(self.directory, basename + '.jpg'),
-            'info': info,
-        }
 
     def get_random_date(self, format='%Y-%m-%d'):
         """
@@ -85,7 +71,7 @@ class YoutubeLibrary():
         entry = random.choice(chart)
         song = vars(entry)
         # Add the year from the randomly generated date to the dictionary
-        song['billboardYear'] = date[:4]
+        song['year'] = date[:4]
         return song
 
     def get_video_id(self, query):
@@ -113,11 +99,11 @@ class YoutubeLibrary():
 
         return response['items'][0]['id']['videoId']
 
-    def download_song(self, video_id):
+    def download_audio(self, video_id):
         """
-        Download a song from youtube.
+        Download audio from youtube.
 
-        Runs bin/download-song because the youtube-dl python module's
+        Runs bin/download-audio because the youtube-dl python module's
         'finished' hook is executed after the video downloads, but before
         postprocessing (in our case, separating the audio).
 
@@ -137,26 +123,39 @@ class YoutubeLibrary():
             self.directory], stdout=subprocess.PIPE)
         return output.stdout.decode('utf8')
 
+    def get_song(self, info):
+        query = '{artist} {title}'.format(**info)
+        print('query: ' + query)
+        video_id = self.get_video_id(query)
+        basename = self.download_audio(video_id)
+
+        return {
+            'basename': basename,
+            'audio_file': os.path.join(self.directory, basename + '.mp3'),
+            'thumbnail': os.path.join(self.directory, basename + '.jpg'),
+            'info': info,
+        }
+
     def get_song_info(self, query):
         """
         Get information about a song.
 
-        Uses the last
+        query is potentially unsafe user input, so it must be url encoded.
+        Thankfully requests takes care of that. More subtly, query could be
+        intended to make the bot download and tweet something offensive, so
+        this method can be used to ensure than we are searching youtube for a
+        song.
 
         Args:
-            title (str): The youtube video's title.
+            query (str): Possibly user-supplied string to search the music
+            database for
 
         Returns:
             dict: Information about the song. For example:
             {
                 'artist': 'Taylor Swift',
-                'song': 'You Belong With Me'
+                'song': 'You Belong With Me',
+                'year': '2008',
             }
-
-        TODO: Figure out a better way to get song information. Right now this
-        strips everything after a ( or [ character, since videos often have
-        (Original Video) in the title. Unfortunately this frequently loses
-        information, since features are often in parentheses and (less often)
-        song titles have parenthetical parts. Perhaps this could use a fuzzy
-        matching song database service.
         """
+        pass

@@ -4,10 +4,12 @@ import subprocess
 import requests
 import time
 import billboard
+from observable import Observable
 
 
-class YoutubeLibrary():
+class YoutubeLibrary(Observable):
     def __init__(self, api_key, directory='.'):
+        super().__init__()
         self.api_key = api_key
         self.directory = directory
         if not os.path.isdir(directory) and os.path.exists(directory):

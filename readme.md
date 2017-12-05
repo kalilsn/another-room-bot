@@ -22,6 +22,6 @@
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	```
 - [pip](https://pip.pypa.io/en/stable/) – Python package manager
-	- [https://pip.pypa.io/en/stable/installing/](Installation instructions)
+	- [Installation instructions](https://pip.pypa.io/en/stable/installing/)
 - Various PyPi packages
 	- `pip install -r requirements.txt`

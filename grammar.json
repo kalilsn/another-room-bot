@@ -1,56 +1,69 @@
 {
 "origin": [
-	"#track# from another room.",
-	"#track#, but #sound_phrase# it's #playing# from another room.",	
-	"#track#, but #sound_phrase# your #relationship# is listening to it in another room.",	
-	"#track#, but #sound_phrase# you're in another room.",
-	"#track#, but #sound_phrase# #source_skip# you're #action_skip# in another room.",
-	"#track#, #played_by# your #relationship# while you're #action_skip# in another room.",
-	"#track#, #playing# #source# while you're #action# in another room.",
-	"Your #relationship# #is listening to# #track#, but #sound_phrase# you're #action_skip# in another room.",
-	"{artist} is playing {song}, but #sound_phrase# you're #action_skip# in another room.",
-	"{artist} is playing {song}, but #sound_phrase# you're #action_skip# in another room."
-	"It's {year}. Your #relationship# #is listening to# #track#, but #sound_phrase# you're #action_skip# in another room.",
-	"It's {year}. {artist} is playing {song}, but #sound_phrase# you're #action_skip# in another room.",
+	"#track#, but #sound# because it's #playing# from another room.",
+	"#track#, but it's #sound# because your #relationship# is listening to it in another room.",
+	"#track#, but it's #sound# because it's #playing# #source# and you're #action# in another room.",
+	"#track#, #played_by# your #relationship# while you're #action# in another room.",
+	"#track#, #playing# #source# while you're #action# #in another room#.",
+	"It's {year}. Your #relationship# #is listening to# #track# and you're #action# #in another room#.",
+	"It's {year}. Your #relationship# #is listening to# #track#. It's #sound# because you're #action# #in another room#.",
+	"It's {year}. You're at a {artist} show, but you can barely hear {title} because you're #action# #in_another_room_public#.",
+	"You're at the {artist} show. {title} is #sound# because you're #action# #in_another_room_public#."
 ],
 
 "track": [
-	"{song}",
-	"{song}",
-	"{song} by {artist}",
-	"{song} by {artist}",
-	"{artist}'s {song}"
+	"{title}",
+	"{title} by {artist}",
+	"{title} by {artist}",
+	"{artist}'s {title}"
+],
+
+"in another room": [
+	"in another room",
+	"in your bedroom",
+	"in the bathroom",
+	"in the basement",
+	"in the attic",
+	"in your closet",
+	"on your bed",
+	"in your car",
+	"on the roof"
+],
+
+"in_another_room_public": [
+	"at coat check",
+	"in the bathroom",
+	"outside",
+	"backstage",
+	"in line",
+	"at the bar"
 ],
 
 "relationship": [
 	"mom",
 	"dad",
-	"#age# brother",
-	"#age# sister",
-	"#age# brother",
-	"#age# sister",
+	"#age#brother",
+	"#age#sister",
 	"boyfriend",
 	"girlfriend",
 	"crush",
 	"crush",
+	"ex",
 	"ex",
 	"best friend",
 	"childhood friend",
 	"college roommate",
 	"husband",
 	"wife",
-	"neighbor"
+	"neighbor",
+	"cousin",
+	"nemesis"
 ],
 
 "age": [
-	"", 
-	"little",
-	"older"
-],
-
-"action_skip": [
 	"",
-	"#action#"
+	"little ",
+	"older "
 ],
 
 "action": [
@@ -68,10 +81,12 @@
 	"drinking",
 	"waiting",
 	"recovering from a headache",
+	"hungover",
 	"feeling sick",
 	"avoiding your #relationship#",
 	"waiting for your #relationship#",
 	"getting ready to leave",
+	"calling a car",
 	"daydreaming",
 	"getting dressed",
 	"waking up",
@@ -79,7 +94,8 @@
 	"doing your makeup",
 	"with your #relationship#",
 	"falling asleep",
-	"fighting with #relationship#",
+	"fighting with your #relationship#",
+	"dancing",
 	"dancing",
 	"dancing with your #relationship#",
 	"having a drink",
@@ -88,8 +104,7 @@
 	"half asleep",
 	"dreaming",
 	"watching Netflix",
-	"brushing your teeth",
-	"taking a shower"
+	"brushing your teeth"
 ],
 
 "location_prep": [
@@ -106,11 +121,8 @@
 	"#location_prep# karaoke bar",
 	"#location_prep# club",
 	"#location_prep# party",
-	"#location_prep# college party",
-	"#location_prep# house show",
-	"#location_prep# house party",
+	"#location_prep# DIY show",
 	"#location_prep# bar",
-	"#location_prep# karaoke bar",
 	"#location_prep# club",
 	"from the fire escape",
 	"from the alley",
@@ -130,18 +142,6 @@
 	"on the radio"
 ],
 
-"source_skip": [
-	"",
-	"it's #playing# #source# while",
-	"it's #playing# #source# and"
-], 
-
-"sound_phrase": [
-	"",
-	"it's #sound# because",
-	"it's #sound# because"
-],
-
 "sound": [
 	"muffled",
 	"quieter",
@@ -151,18 +151,18 @@
 	"hard to hear the words",
 	"difficult to understand",
 	"softer",
-	"unintelligible"
+	"hazy",
+	"quiet",
+	"soft"
 ],
 
 "is listening to": [
 	"is listening to",
 	"is blasting",
-	"is loudly playing",
-	"is softly playing",
 	"just put on",
 	"just put on",
 	"won't turn off"
-], 
+],
 
 "played_by": [
 	"played by",
@@ -175,8 +175,6 @@
 "playing": [
 	"playing",
 	"playing",
-	"playing loudly",
-	"playing softly",
 	"being played",
 	"drifting in"
 ]}

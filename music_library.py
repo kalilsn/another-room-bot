@@ -35,46 +35,29 @@ class YoutubeLibrary(Observable):
             try:
                 return self.get_song(info)
             except KeyError:
-                print('no results, trying again')
-
-    def get_random_date(self, format='%Y-%m-%d'):
-        """
-        Generate a random date between the epoch and today.
-
-        Based on https://stackoverflow.com/a/553320. Dates should be formatted
-        as YYYY-MM-DD
-
-        Args:
-            format (str, optional): Output format as accepted by time.strftime.
-            Defaults to %Y-%m-%d.
-
-        Returns:
-            Random date between the start and end date, formatted YYYY-MM-DD.
-        """
-        random_time = time.mktime(time.localtime()) * random.random()
-
-        return time.strftime(format, time.localtime(random_time))
+                print('No results, trying again')
 
     def get_random_song_info(self):
         """
-        Get a random song from the billboard hot 100.
+        Get a random song from top_songs.csv. Returns a dictionary of information
+        about the selected song, for example:
 
-        Only gets charts from after the epoch (hot 100 only started in 1958
-        so ¯\_(ツ)_/¯). Uses https://github.com/guoguo12/billboard-charts.
-
-        Returns:
-            A dictionary of information about the selected song. Has all the
-            properties of the ChartEntry object as keys (title, artist,
-            peakPos, lastPos, weeks, rank) as well as billboardYear.
+            info = {
+                'artist': 'Taylor Swift',
+                'title': 'You Belong With Me',
+                'year': '2008',
+            }
         """
+        with open('songs/top_songs.csv', 'r') as csvfile:
+            reader = csv.DictReader(csvfile)
+            chosen_row = random.choice(list(reader))
 
-        date = self.get_random_date()
-        chart = billboard.ChartData('hot-100', date=date)
-        entry = random.choice(chart)
-        song = vars(entry)
-        # Add the year from the randomly generated date to the dictionary
-        song['year'] = date[:4]
-        return song
+        info = {
+            'artist': chosen_row['artist'],
+            'title': chosen_row['title'],
+            'year': chosen_row['year'],
+        }
+        return info
 
     def get_video_id(self, query):
         """
@@ -137,27 +120,3 @@ class YoutubeLibrary(Observable):
             'thumbnail': os.path.join(self.directory, basename + '.jpg'),
             'info': info,
         }
-
-    def get_song_info(self, query):
-        """
-        Get information about a song.
-
-        query is potentially unsafe user input, so it must be url encoded.
-        Thankfully requests takes care of that. More subtly, query could be
-        intended to make the bot download and tweet something offensive, so
-        this method can be used to ensure than we are searching youtube for a
-        song.
-
-        Args:
-            query (str): Possibly user-supplied string to search the music
-            database for
-
-        Returns:
-            dict: Information about the song. For example:
-            {
-                'artist': 'Taylor Swift',
-                'song': 'You Belong With Me',
-                'year': '2008',
-            }
-        """
-        pass

@@ -6,7 +6,7 @@ import json
 import secrets
 import tweepy
 from twitter_bot import TwitterBot
-import logger
+# import logger
 
 
 class AnotherRoomBot():
@@ -23,26 +23,9 @@ class AnotherRoomBot():
             logger.log('{} is a required keyword argument in the'
                        ' AnotherRoomBot.__init__ constructor'.format(key))
 
-
     def run(self):
         # set up scheduler
         pass
-
-    def tweet_song(self, query):
-        """
-        Tweet a particular song.
-
-        query is potentially untrusted user input, so we shouldn't blindly
-        download whatever it returns. Uses the library's get_song_info(query)
-        to ensure that we're searching for an actual song.
-
-        Args:
-            query (str): A query to search for a song by, such as
-            "{artist} {title}"
-        """
-        song = self.library.get_song_info(query)
-        youtube_query = '{artist} {song}'.format(song)
-        library.download_song(library.get_video_id())
 
     def tweet_random_song(self):
         song = library.get_random_song()
@@ -50,7 +33,7 @@ class AnotherRoomBot():
         video = self.create_video(muffled_song)
         text = self.generate_tweet_text(song['info'])
 
-        self.twitter_bot.send_media_tweet(text, video)
+        # self.twitter_bot.send_media_tweet(text, video)
 
     # Use sox utility to add muffled effect to audio
     # TODO: investigate volume levels

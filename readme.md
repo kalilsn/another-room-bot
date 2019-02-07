@@ -25,3 +25,8 @@
 	- [Installation instructions](https://pip.pypa.io/en/stable/installing/)
 - Various PyPi packages
 	- `pip install -r requirements.txt`
+
+## Song Corpus
+
+- [angrbrd](https://github.com/angrbrd)'s [top500-playlist](https://github.com/angrbrd/top5000-playlist)
+- Bea's top 2017 and 2018 Spotify playlists

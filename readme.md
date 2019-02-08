@@ -21,6 +21,8 @@
 	sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	```
+- [jq](https://stedolan.github.io/jq/) - Command line JSON processor
+  - Mac: `brew install jq`
 - [pip](https://pip.pypa.io/en/stable/) – Python package manager
 	- [Installation instructions](https://pip.pypa.io/en/stable/installing/)
 - Various PyPi packages

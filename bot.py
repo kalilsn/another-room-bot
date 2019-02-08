@@ -185,7 +185,5 @@ if __name__ == '__main__':
 
 # TODO
 # Clean up files in tweet_media
-# Add support for specifying song
-# Tweet videos directly!
-# Cut of random first few seconds of songs?
 # Host this somewhere and running on its own
+# Add different types of sound edits

@@ -40,7 +40,12 @@ def generate_tweet_text(info):
         rules = json.load(f)
     grammar = tracery.Grammar(rules)
     grammar.add_modifiers(base_english)
-    return grammar.flatten('#origin#').format(**info)
+    tweet_text = grammar.flatten('#origin#').format(**info)
+
+    if 'requester' in info.keys():
+        tweet_text = "For " + info['requester'] + ": " + tweet_text
+
+    return tweet_text
 
 def get_youtube_id(query):
     """
@@ -94,12 +99,12 @@ def get_audio(youtube_id, directory):
 def download_song(info):
     query = '{artist} {title}'.format(**info)
     youtube_id = get_youtube_id(query)
-    basename = get_audio(youtube_id, media_directory)
+    get_audio(youtube_id, media_directory)
 
     return {
-        'basename': basename,
-        'audio_file': os.path.join(media_directory, basename.strip('\n\"') + '.mp3'),
-        'thumbnail': os.path.join(media_directory, basename.strip('\n\"') + '.jpg'),
+        'youtube_id': youtube_id,
+        'audio_file': os.path.join(media_directory, youtube_id + '.mp3'),
+        'thumbnail': os.path.join(media_directory, youtube_id + '.jpg'),
         'info': info
     }
 
@@ -131,22 +136,25 @@ def create_tweet_media(info):
     """
     song = download_song(info)
     muffled_song = muffle(song['audio_file'])
-    video = create_video(muffled_song, song['thumbnail'])
+    video = create_video(muffled_song, song['thumbnail']).strip("\n")
     text = generate_tweet_text(song['info'])
+
+    print("Creating tweet media......")
+    print(video)
     print(text)
+
     return {
-        'video': video.strip(),
+        'video': video,
         'text': text
     }
 
-def write_random_tweet(info):
+def write_tweet(info):
     """
     Get video and generated text for a song randomly chosen from top_songs.csv
     """
     if info == {}:
         info = get_random_song_info()
 
-    try:
-        return create_tweet_media(info)
-    except KeyError:
-        print('No results, trying again')
+    return create_tweet_media(info)
+    # except KeyError:
+    #     print('No results, trying again')

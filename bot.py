@@ -6,7 +6,7 @@ import requests
 from requests_oauthlib import OAuth1
 
 import secrets
-from write_tweet import write_random_tweet
+from write_tweet import write_tweet
 
 # from twitterdev example at https://github.com/twitterdev/large-video-upload-python
 
@@ -163,20 +163,23 @@ if __name__ == '__main__':
 
     info={}
 
-    if len(sys.argv) == 4:
+    if len(sys.argv) >= 4:
         info = {
             'artist': sys.argv[1],
             'title': sys.argv[2],
             'year': sys.argv[3]
         }
         print("You've entered a specific song! " + str(info))
-
     elif len(sys.argv) == 1:
         pass
     else:
-        raise TypeError("You don't have enough arguments for a full request. Make sure to follow the form:\npython bot.py \"artist\" \"title\" \"year\"")
+        raise TypeError("You don't have enough arguments for a full request. Make sure to follow the form:\npython bot.py \"artist\" \"title\" \"year\" \"requester\"")
 
-    tweet = write_random_tweet(info)
+    if len(sys.argv) == 5:
+        info['requester'] = sys.argv[4]
+        print("Requester: " + info['requester'])
+
+    tweet = write_tweet(info)
     videoTweet = VideoTweet(tweet['video'])
     videoTweet.upload_init()
     videoTweet.upload_append()

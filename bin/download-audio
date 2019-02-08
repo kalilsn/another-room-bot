@@ -2,7 +2,7 @@
 
 # Download audio + thumbnail with youtube-dl and print the title to stdout
 # Requires: youtube-dl and jq
-# Usage: bin/download-song <url> [<output_directory>]
+# Usage: bin/download-audio <url> [<output_directory>]
 
 directory="${2%/}"
-youtube-dl -x --audio-format mp3 --write-thumbnail "$1" -o "${directory:-$PWD}/%(title)s.%(ext)s" --print-json | jq '.fulltitle'
+youtube-dl -x --audio-format mp3 --write-thumbnail "$1" -o "${directory:-$PWD}/%(id)s.%(ext)s" --print-json | jq '.id'

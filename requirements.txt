@@ -1,5 +1,4 @@
 beautifulsoup4==4.6.0
-billboard.py==4.0.0
 certifi==2017.11.5
 chardet==3.0.4
 idna==2.6
@@ -8,5 +7,7 @@ requests==2.18.4
 requests-oauthlib==0.8.0
 six==1.11.0
 tracery==0.1.1
-tweepy==3.5.0
+tweepy==3.7.0
+git+https://github.com/Spyder-exe/tweepy.git
 urllib3==1.22
+ffmpeg-1.4

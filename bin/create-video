@@ -4,9 +4,5 @@
 # Requires ffmpeg and lame for reading mp3
 # Usage: bin/create-video <thumbnail> <audio>
 video_file="${1%.*}".mp4
-ffmpeg -loop 1 -y -i "$1" -i "$2" -shortest -vf scale=1280:720 -t 140 "$video_file"
+ffmpeg -loop 1 -y -i "$1" -i "$2" -shortest -vf scale=1280:720 -ss 15 -t 140 -filter:a "volume=1.5" "$video_file"
 echo $video_file
-
-# bin/create-video "tweet_media/Tina Turner I Don't Wanna Fight.jpg" "tweet_media/Tina Turner I Don't Wanna Fight-muffled.mp3"
-
-# ffmpeg -loop 1 -y -i "tweet_media/ERUPTION - I Can't Stand The Rain (1978).jpg" -i "tweet_media/ERUPTION - I Can't Stand The Rain (1978)-muffled.mp3" -shortest -vf scale=1280:720 -t 140 "tweet_media/ERUPTION - I Can't Stand The Rain (1978).mp4"

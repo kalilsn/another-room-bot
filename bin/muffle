@@ -6,5 +6,5 @@
 # Usage: muffle <infile>
 
 outfile="${1%*.*}"-muffled.mp3
-sox -G "$1" "$outfile" reverb 50 50 30 lowpass 200 sinc -1k remix 1p-"$((RANDOM % 3))"
+sox --norm "$1" "$outfile" trim $((RANDOM % 30)) reverb 50 50 30 lowpass 200 sinc -1k remix 1p-"$((RANDOM % 3))"
 echo $outfile

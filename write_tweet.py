@@ -63,7 +63,7 @@ def get_youtube_id(query):
         'key': youtube_api_key,
         'fields': 'items/id/videoId',
     }).json()
-
+    print(response)
     youtube_id = response['items'][0]['id']['videoId']
     return youtube_id
 
@@ -135,7 +135,7 @@ def create_tweet_media(info):
     text = generate_tweet_text(song['info'])
     print(text)
     return {
-        'video': video,
+        'video': video.strip(),
         'text': text
     }
 
@@ -145,9 +145,8 @@ def write_random_tweet(info=None):
     """
     if info is None:
         info = get_random_song_info()
-        
-    while True:
-        try:
-            return create_tweet_media(info)
-        except KeyError:
-            print('No results, trying again')
+
+    try:
+        return create_tweet_media(info)
+    except KeyError:
+        print('No results, trying again')

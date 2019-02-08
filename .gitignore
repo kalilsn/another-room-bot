@@ -5,3 +5,4 @@ tmpdir
 .DS_Store
 
 secrets.py
+tweet_media/

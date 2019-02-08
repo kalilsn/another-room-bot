@@ -139,11 +139,11 @@ def create_tweet_media(info):
         'text': text
     }
 
-def write_random_tweet(info=None):
+def write_random_tweet(info):
     """
     Get video and generated text for a song randomly chosen from top_songs.csv
     """
-    if info is None:
+    if info == {}:
         info = get_random_song_info()
 
     try:

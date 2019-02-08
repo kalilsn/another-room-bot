@@ -1,5 +1,3 @@
-# modeled on https://github.com/twitterdev/large-video-upload-python
-
 import os
 import sys
 import time
@@ -9,6 +7,8 @@ from requests_oauthlib import OAuth1
 
 import secrets
 from write_tweet import write_random_tweet
+
+# from twitterdev example at https://github.com/twitterdev/large-video-upload-python
 
 MEDIA_ENDPOINT_URL = 'https://upload.twitter.com/1.1/media/upload.json'
 POST_TWEET_URL = 'https://api.twitter.com/1.1/statuses/update.json'
@@ -160,7 +160,23 @@ class VideoTweet(object):
 
 
 if __name__ == '__main__':
-    tweet = write_random_tweet()
+
+    info={}
+
+    if len(sys.argv) == 4:
+        info = {
+            'artist': sys.argv[1],
+            'title': sys.argv[2],
+            'year': sys.argv[3]
+        }
+        print("You've entered a specific song! " + str(info))
+
+    elif len(sys.argv) == 1:
+        pass
+    else:
+        raise TypeError("You don't have enough arguments for a full request. Make sure to follow the form:\npython bot.py \"artist\" \"title\" \"year\"")
+
+    tweet = write_random_tweet(info)
     videoTweet = VideoTweet(tweet['video'])
     videoTweet.upload_init()
     videoTweet.upload_append()

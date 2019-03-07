@@ -45,6 +45,7 @@ def generate_tweet_text(info):
     if 'requester' in info.keys():
         tweet_text = "For " + info['requester'] + ": " + tweet_text
 
+    print(tweet_text)
     return tweet_text
 
 def get_youtube_id(query):
@@ -134,10 +135,10 @@ def create_tweet_media(info):
     """
     Get video and generated text for a song randomly chosen from top_songs.csv
     """
+    text = generate_tweet_text(info)
     song = download_song(info)
     muffled_song = muffle(song['audio_file'])
     video = create_video(muffled_song, song['thumbnail']).strip("\n")
-    text = generate_tweet_text(song['info'])
 
     print("Creating tweet media......")
     print(video)

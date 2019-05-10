@@ -5,4 +5,4 @@
 # Usage: bin/download-audio <url> [<output_directory>]
 
 directory="${2%/}"
-youtube-dl -x --audio-format mp3 --write-thumbnail "$1" -o "${directory:-$PWD}/%(id)s.%(ext)s" --print-json | jq '.id'
+youtube-dl -v -x --audio-format mp3 --write-thumbnail "$1" -o "${directory:-$PWD}/%(id)s.%(ext)s" --print-json | jq '.id'

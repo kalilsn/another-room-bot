@@ -2,7 +2,10 @@ build:
   docker:
     another-room-bot: Dockerfile
 run:
-  noop: cat
+  noop: 
+    command:
+      - cat
+    image: another-room-bot
   tweet: 
     command:
       - python bot.py

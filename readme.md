@@ -1,8 +1,8 @@
 # Another Room Bot
 
 ## Dependencies
+Another room bot is built for Python 3.7 and uses [pipenv](https://github.com/pypa/pipenv) to manage python dependencies. To install these dependencies, run `pipenv install`. In addition to the python dependencies, there are a few os-level dependencies:
 
-- Python 3.6.3
 - [sox](http://sox.sourceforge.net/sox.html) – Audio processing utility
 	- Mac:
 	`brew install sox --with-lame`
@@ -13,20 +13,8 @@
 	`brew install ffmpeg`
 	- Ubuntu:
 	`sudo apt-get install ffmpeg`
-- [youtube-dl](https://github.com/rg3/youtube-dl/) – Command line program for downloading youtube videos
-	- Mac:
-	`brew install youtube-dl`
-	- Linux:
-	```bash
-	sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-	sudo chmod a+rx /usr/local/bin/youtube-dl
-	```
 - [jq](https://stedolan.github.io/jq/) - Command line JSON processor
   - Mac: `brew install jq`
-- [pip](https://pip.pypa.io/en/stable/) – Python package manager
-	- [Installation instructions](https://pip.pypa.io/en/stable/installing/)
-- Various PyPi packages
-	- `pip install -r requirements.txt`
 
 ## Song Corpus
 

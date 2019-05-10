@@ -2,9 +2,9 @@ build:
   docker:
     another-room-bot: Dockerfile
 run:
-  noop: 
+  web: 
     command:
-      - cat
+      - while true; do sleep 99999; done
     image: another-room-bot
   tweet: 
     command:

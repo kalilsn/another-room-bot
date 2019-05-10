@@ -11,3 +11,4 @@ tweepy==3.7.0
 git+https://github.com/Spyder-exe/tweepy.git
 urllib3==1.22
 ffmpeg-1.4
+youtube-dl==2019.4.30

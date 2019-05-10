@@ -5,7 +5,6 @@ import json
 import requests
 from requests_oauthlib import OAuth1
 
-import secrets
 from write_tweet import write_tweet
 
 # from twitterdev example at https://github.com/twitterdev/large-video-upload-python
@@ -13,13 +12,10 @@ from write_tweet import write_tweet
 MEDIA_ENDPOINT_URL = 'https://upload.twitter.com/1.1/media/upload.json'
 POST_TWEET_URL = 'https://api.twitter.com/1.1/statuses/update.json'
 
-VIDEO_FILENAME = 'path/to/video/file'
-
-
-oauth = OAuth1(secrets.twitter_consumer_key,
-  client_secret=secrets.twitter_consumer_secret,
-  resource_owner_key=secrets.twitter_access_token,
-  resource_owner_secret=secrets.twitter_access_token_secret)
+oauth = OAuth1(os.environ['TWITTER_CONSUMER_KEY'],
+  client_secret=os.environ['TWITTER_CONSUMER_SECRET'],
+  resource_owner_key=os.environ['TWITTER_ACCESS_TOKEN'],
+  resource_owner_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET'])
 
 
 class VideoTweet(object):

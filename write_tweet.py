@@ -4,7 +4,6 @@ import json
 import tracery
 from tracery.modifiers import base_english
 import requests
-from secrets import youtube_api_key
 import subprocess
 import os
 
@@ -66,7 +65,7 @@ def get_youtube_id(query):
         'part': 'id',
         'maxResults': 1,
         'q': query,
-        'key': youtube_api_key,
+        'key': os.environ['YOUTUBE_API_KEY'],
         'fields': 'items/id/videoId',
     }).json()
     print(response)

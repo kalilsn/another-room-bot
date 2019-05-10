@@ -1,6 +1,6 @@
 FROM python:3.7-alpine
 
-RUN apk add --no-cache ffmpeg sox jq
+RUN apk add --no-cache ffmpeg sox jq bash
 
 RUN pip install pipenv
 

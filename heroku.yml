@@ -1,5 +1,8 @@
 build:
   docker:
-    web: Dockerfile
+    another-room-bot: Dockerfile
 run:
-  tweet: python bot.py
+  tweet: 
+    command:
+      - python bot.py
+    image: another-room-bot
